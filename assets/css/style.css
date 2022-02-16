@@ -228,6 +228,8 @@ body.lock {
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
@@ -653,6 +655,9 @@ body.lock {
 
 .single-product {
     background-color: rgba(255, 61, 104, 0.1);
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .single-product__inner {
