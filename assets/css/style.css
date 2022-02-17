@@ -762,5 +762,48 @@ body.lock {
     height: 3.5rem;
 }
 
-/* libs */
-/* swiper.js https://swiperjs.com/get-started */
+/* blog-page */
+
+.blog-page {
+    background-color: rgba(255, 61, 104, 0.1);
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.blog-page__inner {
+    text-align: center;
+    display: flex;flex-direction: column;gap: 3rem;
+}
+
+.blog-page__title {
+    font-size: 4.6rem;
+    font-weight: 700;
+}
+.blog-page__img img {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.blog-page__text {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.blog-page__text p{
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.blog-page__text-img {
+    float: left;
+    margin: 7px 7px 7px 0;
+    width: 500px;
+}
+
+.blog-page__text-img-right {
+    float:right;
+    margin: 7px 7px 7px 0;
+    width: 500px;
+}
