@@ -251,6 +251,7 @@ body.lock {
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+    max-width: 57.3rem;
 }
 
 .firstpage__title {
@@ -732,6 +733,104 @@ body.lock {
     background-image: linear-gradient(0deg, #f093fb, #f5576c);
 }
 
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all .3s linear;
+}
+
+.popup.active {
+    visibility: visible;
+    overflow: visible;
+}
+
+.popup__container {
+    background-color: white;
+    max-width: 50rem;
+    padding: 2rem;
+    border-radius: 1.1rem;
+    transform: translateY(-50px);
+    overflow: hidden;
+    transition: all .3s linear;
+    text-align: center;
+}
+
+.popup__container.active {
+    transform: translateY(0);
+}
+
+.popup__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff3d68;
+    padding: 0.5rem;
+    border-bottom-left-radius: 1.1rem;
+    font-weight: 700;
+    color: white;
+}
+
+.popup__text {
+    font-size: 4.2rem;
+}
+
+.blog-page {
+    background-color: rgba(255, 61, 104, 0.1);
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.blog-page__inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-page__title {
+    font-size: 4.6rem;
+    font-weight: 700;
+}
+
+.blog-page__img img {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.blog-page__text {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.blog-page__text p {
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.blog-page__text-img {
+    float: left;
+    margin: 24px 24px 24px 0;
+    width: 500px;
+}
+
+.blog-page__text-img-right {
+    float: right;
+    margin: 24px 0 24px 24px;
+    width: 500px;
+}
+
 .footer {
     margin-top: auto;
     padding: 1rem 0;
@@ -762,48 +861,5 @@ body.lock {
     height: 3.5rem;
 }
 
-/* blog-page */
-
-.blog-page {
-    background-color: rgba(255, 61, 104, 0.1);
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.blog-page__inner {
-    text-align: center;
-    display: flex;flex-direction: column;gap: 3rem;
-}
-
-.blog-page__title {
-    font-size: 4.6rem;
-    font-weight: 700;
-}
-.blog-page__img img {
-    width: 75%;
-    margin: 0 auto;
-}
-
-.blog-page__text {
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: justify;
-}
-
-.blog-page__text p{
-    display: block;
-    margin-bottom: 2rem;
-}
-
-.blog-page__text-img {
-    float: left;
-    margin: 7px 7px 7px 0;
-    width: 500px;
-}
-
-.blog-page__text-img-right {
-    float:right;
-    margin: 7px 7px 7px 0;
-    width: 500px;
-}
+/* libs */
+/* swiper.js https://swiperjs.com/get-started */
