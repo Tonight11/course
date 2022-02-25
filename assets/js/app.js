@@ -98,12 +98,20 @@ const btn = document.querySelector('.single-product__btn');
 const popup = document.querySelector('.popup');
 const popupContent = document.querySelector('.popup__container');
 
+function btnModal() {
+	if(btn == null) {
+		return;
+	}
+	
+	btn.addEventListener('click', (e) => {
+		popup.classList.add('active')
+		popupContent.classList.add('active')
+		document.body.classList.add('lock');
+	})
+}
 
-btn.addEventListener('click', (e) => {
-	popup.classList.add('active')
-	popupContent.classList.add('active')
-	document.body.classList.add('lock');
-})
+btnModal();
+
 const body = document.querySelector('body');
 
 
