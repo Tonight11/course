@@ -103,6 +103,7 @@ body.lock {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
 }
 
 .container {
@@ -110,6 +111,35 @@ body.lock {
     max-width: 100%;
     padding: 0 15px;
     margin: 0 auto;
+}
+
+.mouse {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid tomato;
+    border-radius: 50%;
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 12px;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s linear;
+    transition-property: transform, background;
+}
+
+.mouse.active {
+    background: tomato;
+    transform: scale(2);
+    transform-origin: 85% 85%;
+}
+
+.mouse.active-tap {
+    background: #ffb547;
+    transform: scale(2);
+    transform-origin: 85% 85%;
 }
 
 /* Blocks */
@@ -164,6 +194,10 @@ body.lock {
     margin-bottom: 5rem;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 .logo img {
     width: 75px;
     height: 75px;
@@ -172,21 +206,8 @@ body.lock {
 }
 
 .header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    z-index: 5;
-}
-
-.header::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: white;
-    z-index: 10;
+    z-index: 1002;
 }
 
 .header__inner {
@@ -217,10 +238,6 @@ body.lock {
 .menu__body li {
     cursor: pointer;
     transition: color .3s linear;
-}
-
-.menu__body li:hover {
-    color: #ff3d68;
 }
 
 .menu__link {
@@ -537,6 +554,8 @@ body.lock {
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+    z-index: 1002;
+    position: relative;
 }
 
 .filter__select {
@@ -544,6 +563,7 @@ body.lock {
     outline: none;
     border: 1px solid #3e80fa;
     padding: 5px;
+    cursor: pointer;
 }
 
 .gallery {
