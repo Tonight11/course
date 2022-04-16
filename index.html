@@ -27,18 +27,20 @@
 		<header class="header">
 			<div class="container">
 				<div class="header__inner">
-					<div class="header__top">	
+					<div class="header__top">
 						<a class="header__logo logo">
-							<img src="assets/img/logo.svg" alt="logo">
+							<img class="logo-img" src="assets/img/logo.svg" alt="logo">
 						</a>
-							<nav class="header__menu  menu">
-								<ul class="menu__body">
-									<li><a class="menu__link" data-scroll-to="catalog">ТОВАРЫ</a></li>
-									<li><a class="menu__link" data-scroll-to="advantage">ПРИЕМУЩЕСТВА</a></li>
-									<li><a class="menu__link" data-scroll-to="gallery">ГАЛЕРЕЯ</a></li>
-									<li><a class="menu__link" data-scroll-to="blog">БЛОГ</a></li>
-								</ul>
-							</nav>
+						<nav class="header__menu  menu">
+							<ul class="menu__body">
+								<li><a class="menu__link" data-scroll-to="catalog">ТОВАРЫ</a></li>
+								<li><a class="menu__link" data-scroll-to="advantage">ПРИЕМУЩЕСТВА</a></li>
+								<li><a class="menu__link" data-scroll-to="gallery">ГАЛЕРЕЯ</a></li>
+								<li><a class="menu__link" data-scroll-to="blog">БЛОГ</a></li>
+							</ul>
+						</nav>
+		
+		
 					</div>
 		
 				</div>
@@ -61,6 +63,7 @@
 						</div>
 					</div>
 				</div>
+				
 			</section>
 			
 			<section class="chips">
@@ -124,6 +127,14 @@
 				<div class="container">
 					<div class="product__inner ">
 						<div class="product__title title">Товары</div>
+						<div class="product__filter filter">
+							Сортировать по:
+							<select name="select" class="filter__select">
+								<option value="default" selected></option>
+								<option value="price">цене</option>
+								<option value="popular">популярности</option>
+							</select>
+						</div>
 						<div class="product__row">
 							<div class="product__column">
 								<div class="product__item">
@@ -132,8 +143,13 @@
 									</div>
 									<div class="product__info">
 										<div class="product__name">Adidas Yeezy</div>
+										<div class="product__rating">
+											<span class="product__rating-text">4</span>
+											⭐
+										</div>
+			
 										<div class="product__bot">
-											<div class="product__price">10000 Р</div>
+											<div class="product__price">10000 </div> Р
 											<a href="single-product.html" class="product__btn btn">Подробнее</a>
 										</div>
 									</div>
@@ -147,8 +163,12 @@
 									</div>
 									<div class="product__info">
 										<div class="product__name">Nike Air Force</div>
+										<div class="product__rating">
+											<span class="product__rating-text">4</span>
+											⭐
+										</div>
 										<div class="product__bot">
-											<div class="product__price">11500 Р</div>
+											<div class="product__price">11500 </div> Р
 											<a href="single-product.html" class="product__btn btn">Подробнее</a>
 										</div>
 									</div>
@@ -162,8 +182,12 @@
 									</div>
 									<div class="product__info">
 										<div class="product__name">Puma Footwear BTS</div>
+										<div class="product__rating">
+											<span class="product__rating-text">5</span>
+											⭐
+										</div>
 										<div class="product__bot">
-											<div class="product__price">25000 Р</div>
+											<div class="product__price">25000 </div> Р
 											<a href="single-product.html" class="product__btn btn">Подробнее</a>
 										</div>
 									</div>
@@ -177,8 +201,12 @@
 									</div>
 									<div class="product__info">
 										<div class="product__name">Vans Authentic Lite</div>
+										<div class="product__rating">
+											<span class="product__rating-text">3</span>
+											⭐
+										</div>
 										<div class="product__bot">
-											<div class="product__price">8000 Р</div>
+											<div class="product__price">8000 </div> Р
 											<a href="single-product.html" class="product__btn btn">Подробнее</a>
 										</div>
 									</div>
@@ -192,8 +220,12 @@
 									</div>
 									<div class="product__info">
 										<div class="product__name">Air Jordan Retro</div>
+										<div class="product__rating">
+											<span class="product__rating-text">2.3</span>
+											⭐
+										</div>
 										<div class="product__bot">
-											<div class="product__price">50000 Р</div>
+											<div class="product__price">50000 </div> Р
 											<a href="single-product.html" class="product__btn btn">Подробнее</a>
 										</div>
 									</div>
@@ -207,8 +239,12 @@
 									</div>
 									<div class="product__info">
 										<div class="product__name">Adidas Yeezy</div>
+										<div class="product__rating">
+											<span class="product__rating-text">4</span>
+											⭐
+										</div>
 										<div class="product__bot">
-											<div class="product__price">10000 Р</div>
+											<div class="product__price">10000 </div> Р
 											<a href="single-product.html" class="product__btn btn">Подробнее</a>
 										</div>
 									</div>
@@ -389,7 +425,10 @@
 		
 				</div>
 			</div>
-		</footer>	</div>
+		</footer>		<div class="mouse"></div>
+	</div>
+
+	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
 		integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
