@@ -117,9 +117,16 @@ singleBtn();
 // animation mouse
 
 const mouse = document.querySelector('.mouse')
+const subscribe = document.querySelector('.subscribe')
+const scene = document.querySelector('.scene');
+const parallaxInstance = new Parallax(scene, {
+	relativeInput: true,
+	hoverOnly: true
+});
 
 window.addEventListener('mousemove', mouseHeart)
 window.addEventListener('mouseover', mouseActive)
+
 
 function mouseHeart(e) {
 
