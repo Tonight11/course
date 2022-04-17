@@ -672,6 +672,13 @@ body.lock {
 
 .subscribe {
     padding: 7.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.subscribe__inner {
+    position: relative;
+    z-index: 1;
 }
 
 .subscribe__title {
@@ -718,6 +725,52 @@ body.lock {
 
 .subscribe__btn {
     border-radius: 1.1rem;
+}
+
+.subscribe__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.subscribe__bg-1 {
+    top: 30% !important;
+    left: 20% !important;
+}
+
+.subscribe__bg-2 {
+    top: 20% !important;
+    left: 60% !important;
+}
+
+.subscribe__bg-3 {
+    top: 30% !important;
+    left: auto !important;
+    right: 5% !important;
+}
+
+.subscribe__bg-4 {
+    top: 30% !important;
+    left: auto !important;
+    right: 60% !important;
+}
+
+.subscribe__bg-5 {
+    top: 30% !important;
+    right: 50% !important;
+}
+
+.scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
 }
 
 .blog {
