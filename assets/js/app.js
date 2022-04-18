@@ -119,10 +119,14 @@ singleBtn();
 const mouse = document.querySelector('.mouse')
 const subscribe = document.querySelector('.subscribe')
 const scene = document.querySelector('.scene');
-const parallaxInstance = new Parallax(scene, {
-	relativeInput: true,
-	hoverOnly: true
-});
+if (location.href.includes("index.html") && location.href.slice(-1) === '/') {
+	const parallaxInstance = new Parallax(scene, {
+		relativeInput: true,
+		hoverOnly: true
+	});
+}
+
+
 
 window.addEventListener('mousemove', mouseHeart)
 window.addEventListener('mouseover', mouseActive)
