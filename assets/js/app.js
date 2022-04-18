@@ -119,7 +119,7 @@ singleBtn();
 const mouse = document.querySelector('.mouse')
 const subscribe = document.querySelector('.subscribe')
 const scene = document.querySelector('.scene');
-if (location.href.includes("index.html") && (location.href.slice(-1) === '/' || location.href.slice(-1) === '#')) {
+if (location.href.includes("index.html") || location.href.slice(-1) === '/' || location.href.slice(-1) === '#') {
 	const parallaxInstance = new Parallax(scene, {
 		relativeInput: true,
 		hoverOnly: true
