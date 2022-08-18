@@ -128,6 +128,10 @@ if (
 window.addEventListener('mouseover', mouseActive);
 window.addEventListener('mousemove', cursorAttach);
 
+let fancyTl = gsap.timeline({ paused: true });
+const cursorIn = () => fancyTl.play();
+const cursorOut = () => fancyTl.reverse();
+
 const cursorAttach = $event => {
 	gsap.set(mouse, {
 		x: $event.clientX,
@@ -140,6 +144,27 @@ const cursorAttach = $event => {
 		y: $event.clientY,
 	});
 };
+
+fancyTl = gsap
+	.timeline()
+	.to(
+		mouse,
+		{
+			duration: 0,
+			zIndex: '2',
+		},
+		'>'
+	)
+	.to(
+		mouse,
+		{
+			scale: 1.9,
+			duration: 0.4,
+			ease: 'bounce',
+		},
+		'>'
+	)
+	.reverse();
 
 function mouseActive(e) {
 	if (
