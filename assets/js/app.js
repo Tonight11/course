@@ -126,15 +126,20 @@ if (
 }
 
 window.addEventListener('mouseover', mouseActive);
+window.addEventListener('mousemove', cursorAttach);
 
-document.body.addEventListener('mousemove', evt => {
-	const mouseX = evt.clientX;
-	const mouseY = evt.clientY;
+const cursorAttach = $event => {
 	gsap.set(mouse, {
-		x: mouseX,
-		y: mouseY,
+		x: $event.clientX,
+		y: $event.clientY,
 	});
-});
+	gsap.to(mouse, {
+		duration: 0.9,
+		autoAlpha: 1,
+		x: $event.clientX,
+		y: $event.clientY,
+	});
+};
 
 function mouseActive(e) {
 	if (
