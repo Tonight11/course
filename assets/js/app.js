@@ -126,37 +126,15 @@ if (
 }
 
 window.addEventListener('mouseover', mouseActive);
-gsap.set(mouse, {
-  xPercent: -50,
-  yPercent: -50,
-  scale: 0
-});
 
-window.addEventListener("mousemove", (e) => {
-  gsap.to(mouse, {
-    duration: 0.5,
-    overwrite: "auto",
-    x: e.clientX,
-    y: e.clientY,
-    ease: "none"
-  });
+function moveCircle(e) {
+	TweenLite.to(mouse, 0.7, {
+		x: e.clientX,
+		y: e.clientY,
+	});
+}
 
-  let TL = gsap.timeline({
-    defaults: { duration: 0.5, ease: "none" }
-  });
-  TL.to(mouse, {
-    scale: 1,
-    overwrite: "auto",
-  });
-  TL.to(
-    mouse,
-    {
-      overwrite: "auto",
-      scale: 0,
-    },
-    "<+=2.5"
-  );
-});
+window.addEventListener('mousemove', moveCircle);
 
 function mouseActive(e) {
 	if (
@@ -165,16 +143,26 @@ function mouseActive(e) {
 		e.target.classList.contains('filter__select')
 	) {
 		mouse.classList.add('active');
+		TweenLite.to(mouse, 0.3, {
+			scale: 2,
+		});
 	} else {
 		mouse.classList.remove('active');
-	}
-
-	if (e.target.classList.contains('popup__close')) {
-		mouse.classList.add('active-tap');
-		mouse.innerText = 'Tap';
-	} else {
-		mouse.classList.remove('active-tap');
-		mouse.innerText = '';
+		
+		if (e.target.classList.contains('popup__close')) {
+			mouse.classList.add('active-tap');
+			console.log(e.target)
+			TweenLite.to(mouse, 0.3, {
+				scale: 2,
+			});
+			mouse.innerText = 'Tap';
+		} else {
+			TweenLite.to(mouse, 0.3, {
+				scale: 1,
+			});
+			mouse.classList.remove('active-tap');
+			mouse.innerText = '';
+		}
 	}
 }
 const body = document.querySelector('body');
