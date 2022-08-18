@@ -1,15 +1,16 @@
 const header = document.querySelector('.header');
 const logo = document.querySelector('.header__logo');
 
-if ((!window.location.href.includes("index.html")) && (window.location.href.slice(-1) != '/')) {
-	header.classList.add('static');	
+if (
+	!window.location.href.includes('index.html') &&
+	window.location.href.slice(-1) != '/'
+) {
+	header.classList.add('static');
 
 	logo.setAttribute('href', 'index.html');
 }
 let controller = new ScrollMagic.Controller();
 let firstTrigger;
-
-
 
 // animation first-page
 
@@ -17,13 +18,15 @@ const info = document.querySelector('.firstpage__info');
 const imgNike = document.querySelector('.firstpage__img');
 const nav = document.querySelector('.header__top');
 
-const firstTl = gsap.timeline({ defaults: { duration: .8, ease: Power2.inOut } });
+const firstTl = gsap.timeline({
+	defaults: { duration: 0.8, ease: Power2.inOut },
+});
 
-firstTl.from(info, { opacity: 0, x: -40 })
-firstTl.from(imgNike, { opacity: 0, x: -20 }, '-=0.3')
+firstTl.from(info, { opacity: 0, x: -40 });
+firstTl.from(imgNike, { opacity: 0, x: -20 }, '-=0.3');
 
 if (window.pageYOffset == 0) {
-	firstTl.from(nav, { opacity: 0, y: -40 }, '-=0.8')
+	firstTl.from(nav, { opacity: 0, y: -40 }, '-=0.8');
 }
 
 // animation cards
@@ -31,15 +34,13 @@ if (window.pageYOffset == 0) {
 const cards = document.querySelectorAll('.card-animation');
 
 cards.forEach(card => {
-
 	const chips = card.querySelectorAll('.chips__column');
 	const advantages = card.querySelectorAll('.advantage__column');
 	const blogs = card.querySelectorAll('.blog__column');
 
-
-
-	const secondTl = gsap.timeline({ defaults: { duration: .7, ease: Power2.inOut } });
-
+	const secondTl = gsap.timeline({
+		defaults: { duration: 0.7, ease: Power2.inOut },
+	});
 
 	secondTl.from(chips, { opacity: 0, y: 40, stagger: 0.2 });
 	secondTl.from(advantages, { opacity: 0, y: 40, stagger: 0.2 }, '-=0.7');
@@ -48,10 +49,10 @@ cards.forEach(card => {
 	firstTrigger = new ScrollMagic.Scene({
 		triggerElement: card,
 		triggerHook: 0.5,
-		reverse: false
+		reverse: false,
 	})
 		.setTween(secondTl)
-		.addTo(controller)
+		.addTo(controller);
 });
 
 // gallery animation
@@ -59,11 +60,11 @@ cards.forEach(card => {
 const galleryContent = document.querySelectorAll('.gallery__inner');
 const galleries = document.querySelectorAll('.gallery__item');
 
-const thirdTl = gsap.timeline({ defaults: { duration: .5, ease: Power2.inOut } });
+const thirdTl = gsap.timeline({
+	defaults: { duration: 0.5, ease: Power2.inOut },
+});
 const secondController = new ScrollMagic.Controller();
 let secondTrigger;
-
-
 
 galleries.forEach((gallery, index, galleries) => {
 	if (index == 0) {
@@ -78,19 +79,15 @@ galleries.forEach((gallery, index, galleries) => {
 	if (index == 3) {
 		thirdTl.from(gallery, { x: 50, opacity: 0 });
 	}
-
-})
-
+});
 
 secondTrigger = new ScrollMagic.Scene({
 	triggerElement: galleryContent,
 	triggerHook: 0.5,
-	reverse: false
+	reverse: false,
 })
 	.setTween(thirdTl)
 	.addTo(controller);
-
-
 
 // single product popup
 
@@ -98,48 +95,53 @@ const btn = document.querySelector('.single-product__btn');
 const popup = document.querySelector('.popup');
 const popupContent = document.querySelector('.popup__container');
 
-
 function singleBtn() {
 	if (btn == null) {
-		return
+		return;
 	}
 
-	btn.addEventListener('click', (e) => {
-		popup.classList.add('active')
-		popupContent.classList.add('active')
+	btn.addEventListener('click', e => {
+		popup.classList.add('active');
+		popupContent.classList.add('active');
 		document.body.classList.add('lock');
-	})
+	});
 }
 
 singleBtn();
 
-
 // animation mouse
 
-const mouse = document.querySelector('.mouse')
-const subscribe = document.querySelector('.subscribe')
+const mouse = document.querySelector('.mouse');
+const subscribe = document.querySelector('.subscribe');
 const scene = document.querySelector('.scene');
-if (location.href.includes("index.html") || location.href.slice(-1) === '/' || location.href.slice(-1) === '#') {
+if (
+	location.href.includes('index.html') ||
+	location.href.slice(-1) === '/' ||
+	location.href.slice(-1) === '#'
+) {
 	const parallaxInstance = new Parallax(scene, {
 		relativeInput: true,
-		hoverOnly: true
+		hoverOnly: true,
 	});
 }
 
+window.addEventListener('mouseover', mouseActive);
 
-
-window.addEventListener('mousemove', mouseHeart)
-window.addEventListener('mouseover', mouseActive)
-
-
-function mouseHeart(e) {
-
-	mouse.style.top = e.pageY + 'px'
-	mouse.style.left = e.pageX + 'px'
-}
+document.body.addEventListener('mousemove', evt => {
+	const mouseX = evt.clientX;
+	const mouseY = evt.clientY;
+	gsap.set(mouse, {
+		x: mouseX,
+		y: mouseY,
+	});
+});
 
 function mouseActive(e) {
-	if (e.target.classList.contains('logo-img') || e.target.classList.contains('menu__link') || e.target.classList.contains('filter__select')) {
+	if (
+		e.target.classList.contains('logo-img') ||
+		e.target.classList.contains('menu__link') ||
+		e.target.classList.contains('filter__select')
+	) {
 		mouse.classList.add('active');
 	} else {
 		mouse.classList.remove('active');
@@ -155,34 +157,33 @@ function mouseActive(e) {
 }
 const body = document.querySelector('body');
 
-
 body.addEventListener('click', function (e) {
-
 	let target = e.target;
-	if (!target.hasAttribute("data-scroll-to")) {
+	if (!target.hasAttribute('data-scroll-to')) {
 		return;
 	}
 
-	let scrollToItemClass = target.closest('[data-scroll-to]').getAttribute('data-scroll-to');
+	let scrollToItemClass = target
+		.closest('[data-scroll-to]')
+		.getAttribute('data-scroll-to');
 
-	let scrollToItem = document.querySelector('.' + scrollToItemClass)
+	let scrollToItem = document.querySelector('.' + scrollToItemClass);
 
-	console.log(scrollToItem)
+	console.log(scrollToItem);
 
 	if (scrollToItem) {
 		scrollToSection(scrollToItem);
 	}
-})
+});
 
 function scrollToSection(item) {
 	let targetTop = item.getBoundingClientRect().top;
 	let scrollTop = window.pageYOffset;
-	let summTop = scrollTop + targetTop
+	let summTop = scrollTop + targetTop;
 	window.scrollTo({
 		top: summTop - 75,
-		behavior: "smooth"
+		behavior: 'smooth',
 	});
-
 }
 (function () {
 	let catalogRow = document.querySelector('.product__row');
@@ -191,44 +192,44 @@ function scrollToSection(item) {
 	let filterValue = [];
 
 	if (!filter) {
-		return
+		return;
 	}
 
-	filter.addEventListener('change', sort)
+	filter.addEventListener('change', sort);
 
 	function sort(e) {
-
 		const sortBy = e.target.value;
 
 		if (sortBy === 'default') {
 			pushChild(catalogRow, products);
-			return
+			return;
 		}
 
-		const filterName = [...products].map((e) => {
+		const filterName = [...products].map(e => {
 			let item = e;
 			filterValue.push(item);
 		});
 
-
-
 		if (sortBy === 'price') {
 			const sorting = filterValue.sort((a, b) => {
-				const first = (a.querySelector('.product__price').textContent);
-				const second = (b.querySelector('.product__price').textContent);
+				const first = a.querySelector('.product__price').textContent;
+				const second = b.querySelector('.product__price').textContent;
 
 				return first - second;
-			})
-
+			});
 
 			pushChild(catalogRow, sorting);
 		} else if (sortBy === 'popular') {
 			const sorting = filterValue.sort((a, b) => {
-				const first = a.querySelector('.product__rating-text').textContent;
-				const second = b.querySelector('.product__rating-text').textContent;
+				const first = a.querySelector(
+					'.product__rating-text'
+				).textContent;
+				const second = b.querySelector(
+					'.product__rating-text'
+				).textContent;
 
 				return second - first;
-			})
+			});
 			pushChild(catalogRow, sorting);
 		}
 	}
@@ -245,4 +246,4 @@ function scrollToSection(item) {
 			item.appendChild(children[i]);
 		}
 	}
-}())
+})();
